@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import scipy.cluster.hierarchy as sch
 import matplotlib.pyplot as plt
+import seaborn as sns
 from sklearn.decomposition import PCA
 from sklearn.metrics import pairwise_distances
 import numpy as np
@@ -33,11 +34,20 @@ def main():
             fig.update_layout(
                         title="Übereinstimmungen laut Wahl-O-Mat zwischen den Parteien in %",
                         xaxis=dict(
-                            tickangle=-45
-                        ),
-                         dragmode='pan'
+                           tickangle=-90,), 
+                       height=1000
                     )
+            fig.update_xaxes(fixedrange=True)
+            fig.update_yaxes(fixedrange=True)
             st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
+            plt.figure(figsize=(12, 8))  
+            ax = sns.heatmap(df_reordered, annot=True, fmt='.0f', cmap="coolwarm", cbar=False, 
+                            xticklabels=df_reordered.columns, yticklabels=df_reordered.index, linecolor='gray')
+            #plt.title("Übereinstimmungen laut Wahl-O-Mat zwischen den Parteien in %", fontsize=16)
+            ax.set_xlabel('')
+            ax.set_ylabel('')
+            ax.grid(False)
+            st.pyplot(plt)
     except:
          st.write("Heatmap kann nicht gealden werden")
     try:

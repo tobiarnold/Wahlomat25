@@ -58,7 +58,7 @@ def main():
         pca_df = pd.DataFrame(pca_result, index=df_pca.index, columns=['PCA1', 'PCA2'])
         dist_matrix = pairwise_distances(pca_df)  
         similarity_scores = np.exp(-dist_matrix)  
-        plt.figure()
+        plt.figure(figsize=(12, 8)) 
         scatter = plt.scatter(pca_df["PCA1"], pca_df["PCA2"])  
         for i in pca_df.index:
             plt.annotate(i, (pca_df.loc[i, "PCA1"], pca_df.loc[i, "PCA2"]), fontsize=10)

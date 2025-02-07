@@ -34,7 +34,8 @@ def main():
                         title="Übereinstimmungen laut Wahl-O-Mat zwischen den Parteien in %",
                         xaxis=dict(
                             tickangle=-45
-                        )
+                        ),
+                         dragmode='pan'
                     )
             st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
     except:
@@ -64,4 +65,3 @@ def main():
          st.write("Bild kann nicht dargestellt werden.")
 if __name__ == "__main__":
   main()
-

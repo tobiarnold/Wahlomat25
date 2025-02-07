@@ -34,8 +34,7 @@ def main():
                         title="Übereinstimmungen laut Wahl-O-Mat zwischen den Parteien in %",
                         xaxis=dict(
                             tickangle=-45
-                        ),  
-                        height=800
+                        )
                     )
             st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
     except:
@@ -48,7 +47,7 @@ def main():
         pca_df = pd.DataFrame(pca_result, index=df_pca.index, columns=['PCA1', 'PCA2'])
         dist_matrix = pairwise_distances(pca_df)  
         similarity_scores = np.exp(-dist_matrix)  
-        plt.figure(figsize=(16, 8))
+        plt.figure()
         scatter = plt.scatter(pca_df["PCA1"], pca_df["PCA2"])  
         for i in pca_df.index:
             plt.annotate(i, (pca_df.loc[i, "PCA1"], pca_df.loc[i, "PCA2"]), fontsize=10)

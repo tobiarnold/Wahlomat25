@@ -11,7 +11,7 @@ def main():
     st.set_page_config(page_title="Untersuchung der Parteien zur BTW 25 anhand des Wahl-O-Mat", page_icon="🗳️", layout="wide")
     st.title("🗳️ Untersuchung der Parteien zur BTW 25 anhand des Wahl-O-Mat")
     try:
-        df=pd.read_csv(r"C:\Users\Besitzer\Dropbox\Bundestagswahl 2025\df_percent.csv")
+        df=pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/Wahlomat25/refs/heads/main/df_percent.csv")
         df.set_index(df.columns[0], inplace=True)
     except:
          st.write("Daten können nicht geladen werden.")

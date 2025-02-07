@@ -3,5 +3,6 @@ pandas
 plotly
 scipy
 matplotlib
+seaborn
 scikit-learn
 numpy

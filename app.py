@@ -35,10 +35,11 @@ def main():
                         title="Übereinstimmungen laut Wahl-O-Mat zwischen den Parteien in %",
                         xaxis=dict(
                            tickangle=-90,), 
-                       height=1000
+                       height=1000,
+                margin=dict(l=10, r=10, t=30, b=10)
                     )
-           # fig.update_xaxes(fixedrange=True)
-           # fig.update_yaxes(fixedrange=True)
+            fig.update_xaxes(fixedrange=True)
+            fig.update_yaxes(fixedrange=True)
             st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
             plt.figure(figsize=(12, 8))  
             ax = sns.heatmap(df_reordered, annot=True, fmt='.0f', cmap="coolwarm", cbar=False, 

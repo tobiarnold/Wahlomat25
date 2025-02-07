@@ -20,11 +20,11 @@ def main():
             linkage = sch.linkage(matrix, method="ward")  
             dendro = sch.dendrogram(linkage, labels=df.index, no_plot=True)
             sorted_indices = dendro["leaves"]  
-            df_reordered = df.iloc[sorted_indices, sorted_indices]  # Reorder rows and columns
+            df_reordered = df.iloc[sorted_indices, sorted_indices]  
             fig = go.Figure(data=go.Heatmap(
                         z=df_reordered.values,
-                        x=df_reordered.columns,  # Ensure columns are reordered
-                        y=df_reordered.index,    # Rows are reordered
+                        x=df_reordered.columns,  
+                        y=df_reordered.index,  
                         colorscale="portland",
                         showscale=False,
                         text=df_reordered.values,

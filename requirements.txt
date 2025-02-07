@@ -1,8 +1,7 @@
 streamlit
 pandas
-plotly.graph_objects
-scipy.cluster.hierarchy
-matplotlib.pyplot
-sklearn.decomposition
-sklearn.metrics import 
+plotly
+scipy
+matplotlib
+scikit-learn
 numpy

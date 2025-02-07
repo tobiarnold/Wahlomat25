@@ -9,8 +9,8 @@ from sklearn.metrics import pairwise_distances
 import numpy as np
 
 def main():
-    st.set_page_config(page_title="Untersuchung der Parteien zur BTW 25 anhand des Wahl-O-Mat", page_icon="🗳️", layout="wide")
-    st.subheader("🗳️ Untersuchung der Parteien zur BTW 25 anhand des Wahl-O-Mat")
+    st.set_page_config(page_title="Ähnlichkeiten der Parteien zur BTW 25 anhand des Wahl-O-Mat", page_icon="🗳️", layout="wide")
+    st.subheader("🗳️ Ähnlichkeiten der Parteien zur BTW 25 anhand des Wahl-O-Mat")
     try:
         df=pd.read_csv(r"https://raw.githubusercontent.com/tobiarnold/Wahlomat25/refs/heads/main/df_percent.csv")
         df.set_index(df.columns[0], inplace=True)
@@ -37,8 +37,8 @@ def main():
                            tickangle=-90,), 
                        height=1000
                     )
-            fig.update_xaxes(fixedrange=True)
-            fig.update_yaxes(fixedrange=True)
+           # fig.update_xaxes(fixedrange=True)
+           # fig.update_yaxes(fixedrange=True)
             st.plotly_chart(fig, use_container_width=True, config={"displayModeBar": False})
             plt.figure(figsize=(12, 8))  
             ax = sns.heatmap(df_reordered, annot=True, fmt='.0f', cmap="coolwarm", cbar=False, 
